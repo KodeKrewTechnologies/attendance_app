@@ -1,23 +1,19 @@
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeController extends GetxController {
-  //TODO: Implement HomeController
 
-  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
+    checkSession();
   }
 
-  @override
-  void onReady() {
-    super.onReady();
+  void checkSession() async {
+    SharedPreferences _prefs = await SharedPreferences.getInstance();
+    final session = _prefs.getString('session');
+    if (session == null) {
+      Get.offAllNamed('/login');
+    }
   }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }

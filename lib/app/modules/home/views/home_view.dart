@@ -1,3 +1,4 @@
+import 'package:attendance_app/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -13,12 +14,10 @@ class HomeView extends GetView<HomeController> {
         title: const Text('HomeView'),
         centerTitle: true,
       ),
-      body: const Center(
-        child: Text(
-          'HomeView is working',
-          style: TextStyle(fontSize: 20),
-        ),
-      ),
+      body: Center(
+          child: OutlinedButton(
+              onPressed: () => Get.toNamed(Routes.calendarPage),
+              child: const Text("Go to calendar"))),
     );
   }
 }

@@ -26,7 +26,7 @@ class AppPages {
       binding: CalendarPageBinding(),
     ),
     GetPage(
-      name: _Paths.LOGIN,
+      name: _Paths.login,
       page: () => const LoginView(),
       binding: LoginBinding(),
     ),

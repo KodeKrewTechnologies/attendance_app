@@ -1,8 +1,8 @@
 import 'package:attendance_app/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import 'package:get/get.dart';
-
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -15,9 +15,14 @@ class HomeView extends GetView<HomeController> {
         centerTitle: true,
       ),
       body: Center(
-          child: OutlinedButton(
+          child: Column(
+          OutlinedButton(
               onPressed: () => Get.toNamed(Routes.calendarPage),
               child: const Text("Go to calendar"))),
+        children: [
+          Text("Value got from dotenv: ${dotenv.get('hello')}"),
+        ],
+      )),
     );
   }
 }

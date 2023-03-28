@@ -16,10 +16,10 @@ class HomeView extends GetView<HomeController> {
       ),
       body: Center(
           child: Column(
+        children: [
           OutlinedButton(
               onPressed: () => Get.toNamed(Routes.calendarPage),
-              child: const Text("Go to calendar"))),
-        children: [
+              child: const Text("Go to calendar")),
           Text("Value got from dotenv: ${dotenv.get('hello')}"),
         ],
       )),

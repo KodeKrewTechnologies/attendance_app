@@ -9,6 +9,7 @@ class HomeView extends GetView<HomeController> {
   const HomeView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final controller = Get.find<HomeController>();
     return Scaffold(
       appBar: AppBar(
         title: const Text('HomeView'),
@@ -16,10 +17,10 @@ class HomeView extends GetView<HomeController> {
       ),
       body: Center(
           child: Column(
+        children: [
           OutlinedButton(
               onPressed: () => Get.toNamed(Routes.calendarPage),
-              child: const Text("Go to calendar"))),
-        children: [
+              child: const Text("Go to calendar")),
           Text("Value got from dotenv: ${dotenv.get('hello')}"),
         ],
       )),
